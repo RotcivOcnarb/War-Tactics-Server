@@ -249,7 +249,7 @@ function sendBackData(address, port, path, parameters){
 		"idp": generateId10()
 	};
 	var message = Buffer.alloc(JSON.stringify(obj).length, JSON.stringify(obj), "utf8");
-	console.log("Sending message " + path + " to " + address);
+	console.log("Sending message " + path + " to " + address + ":" + port);
 	var client = dgram.createSocket('udp4');
 	for(var i = 0; i < redundancy; i ++){
 		client.send(message, 0, message.length, port, address, function(err, bytes) {
