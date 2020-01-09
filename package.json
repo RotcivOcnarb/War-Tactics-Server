@@ -1,0 +1,14 @@
+{
+  "name": "node-udp-server",
+  "version": "1.0.0",
+  "description": "Servidor pro War Tactics",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "dgram": "^1.0.1"
+  }
+}
