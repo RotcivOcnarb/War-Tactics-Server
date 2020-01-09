@@ -292,4 +292,4 @@ function generateId5(){
 	}
 	return id;
 }
-server.bind(1337);
+server.bind(1337, process.argv[2]);
