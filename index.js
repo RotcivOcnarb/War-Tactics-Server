@@ -292,5 +292,4 @@ function generateId5(){
 	}
 	return id;
 }
-
-server.bind(1337, "192.168.0.7");
+server.bind(1337, process.argv[2]);
