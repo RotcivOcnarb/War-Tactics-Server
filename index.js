@@ -57,7 +57,7 @@ server.on('listening', () => {
 
 var callbacks = {
 	"/myIP": function(request, rinfo){
-		sendBackData(rinfo.addres, rinfo.port, "/myIP", [rinfo.address]);
+		sendBackData(rinfo.address, rinfo.port, "/myIP", [rinfo.address]);
 	},
 	"/rooms" : function(request, rinfo){
 		console.log("Rooms requested:");
