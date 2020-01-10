@@ -116,7 +116,7 @@ var callbacks = {
 		if(!room) return;
 		
 		if(room.player_data[rinfo.address]){
-			room.player_data[rinfo.address] = undefined;
+			delete room.player_data[rinfo.address];
 			room.players = Object.keys(room.player_data).length;
 			
 			var oponentIP = getOponentIP(room, rinfo.address);
