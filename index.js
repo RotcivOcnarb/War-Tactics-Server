@@ -21,9 +21,6 @@ server.on('message', (msg, rinfo) => {
 				//e esse novo tem mais dados, executa o código de novo
 				tokens[obj.idp] = obj;
 				console.log(rinfo.address + " arrived with more data");
-				if(rinfo.port < 49152){
-					console.log("Bizarro
-				}
 				if(callbacks[obj.path]){
 					callbacks[obj.path](obj, rinfo);
 				}
