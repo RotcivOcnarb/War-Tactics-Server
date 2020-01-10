@@ -15,11 +15,15 @@ server.on('message', (msg, rinfo) => {
 	var obj = JSON.parse(msg);
 	
 	if(obj.path){
+		rinfo.port = obj.originalPort;
 		if(tokens[obj.idp]){ //já chegou uma mensagem igual, vê se os dados dela são maiores do que os do q já tem no token
 			if(obj.parameters.length > tokens[obj.idp].parameters.length){//o que chegou tava corrompido 
 				//e esse novo tem mais dados, executa o código de novo
 				tokens[obj.idp] = obj;
 				console.log(rinfo.address + " arrived with more data");
+				if(rinfo.port < 49152){
+					console.log("Bizarro
+				}
 				if(callbacks[obj.path]){
 					callbacks[obj.path](obj, rinfo);
 				}
@@ -246,7 +250,8 @@ function sendBackData(address, port, path, parameters){
 	var obj = {
 		"path":  path,
 		"parameters": parameters,
-		"idp": generateId10()
+		"idp": generateId10(),
+		"originalPort": port
 	};
 	var message = Buffer.alloc(JSON.stringify(obj).length, JSON.stringify(obj), "utf8");
 	console.log("Sending message " + path + " to " + address + ":" + port);
